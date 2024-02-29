@@ -1,0 +1,31 @@
+﻿@model Cars.Models.BrandTbl
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Details</h2>*@
+<body style="background-image:url(/Image/service.jpg); font-size:20px, xx-large; background-size:cover;">
+    <div>
+        <h4 style="margin:20px; margin-top:30px; padding:20px; font-size:26px; font:bold; color:red; line-height:50px">Top 5 car Brands in 2022 by the TrendSpotter: <br /> 1. Tesla <br />2. Mazda <br />3. BMW <br /> 4. Subaru <br /> 5. Porsche </h4>
+        <hr />
+        <dl style="font-size:24px; color:red" class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.BrandName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BrandName)
+            </dd>
+
+
+        </dl>
+    </div>
+
+    <p style="color:aqua; font-size:24px; font:bold;">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.BrandID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+</body>

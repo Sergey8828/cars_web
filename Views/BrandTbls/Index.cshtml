@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Cars.Models.BrandTbl>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body style=" background-image:url(Image/hand.jpg); background-size:cover; color:white; font-size:18px">
+<h2 style="font-size:22px; color:navy" >Welcome to our website. Here is a list of car brands we are working with: </h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table style="font-size:22px; color:navy" class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BrandName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BrandName)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.BrandID }) |
+        @Html.ActionLink("Details", "Details", new { id=item.BrandID }) |
+        @Html.ActionLink("Delete", "Delete", new { id=item.BrandID })*@
+            @Html.ActionLink("Edit", "Edit", new { id = item.BrandID }, new { @class = "btn btn-primary " }) |
+            @Html.ActionLink("Details", "Details", new { id = item.BrandID }, new { @class = "btn btn-success" }) 
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.BrandID }, new { @class = "btn btn-danger" })*@
+        </td>
+    </tr>
+}
+
+</table>
+    </body>

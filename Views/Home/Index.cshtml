@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section Styles{
+    <style>
+        body {
+            background-image:url(Image/skoda.jpg);
+           /* background-size: 1350px 1490px;*/
+        }
+    </style>
+}
+<body style="background-image: url(/Image/car_nature.jpg); background-size:cover; background-repeat:no-repeat;">
+<div  class="jumbotron">
+    <h1 style="color:navy; background-color:cadetblue; font-size:24px; margin-top:10px; padding:15px"> <p>Welcome to our Sergey's car website!!!</p><p>You have entered the best website about cars! </p> <p>Sergey's Cars Co was set up on Thursday the 8th of June 2022.</p> <p> Our current partial address is Claremorris, and the company status is Dissolved with the company closing on Sunday the 26th of April 2022. <p /> <p/> The company's current directors have been the director of 2 other Irish companies between them 1 of which is now closed. <p /> Sergey's Cars has 2 shareholders.</h1>
+    <p style="margin-top:40px; margin-left:300px; width:200px; height:100px;">
+        @Html.ActionLink("Would you like to see  the full list of car brands  we work with?", "Index", "BrandTbls", new { area = "" }, new { @class = "btn btn-primary btn-lg dodge" })
+    </p>
+
+</div>
+<audio autoplay src="~/audio/Chris_Rea_The_Road_To_Hell_Ringtone_(by Fringster.com).mp3" controls style="margin-top:40px">
+Browser doesn't support audio
+    </audio>
+
+@*<div class="row">
+    <div class="col-md-4">*@
+@*<h2>Getting started</h2>
+        <p>
+            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+            enables a clean separation of concerns and gives you full control over markup
+            for enjoyable, agile development.
+        </p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    </div>*@
+@*<div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>*@
+@*<div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>*@
+@*</div>*@
+</body>

@@ -1,0 +1,60 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    color: aqua;
+    font-size: larger;
+} 
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+/*    background-image:url(Image/hand.jpg);*/
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+    width:200px;
+    padding-right:10px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar {   
+    border-color: #fff;
+    font-size:22px;
+    text-decoration: underline;    
+    border-color: blueviolet;
+    background-color: aqua;
+}
+.nav navbar-nav{
+    color:gold;
+}
+.navbar-brand{
+    font-size: 22px;
+    font:bold;
+}
+.navbar-brand:hover{
+    font-size: 26px;
+}
+.jumbotron{
+    background-color:transparent;
+}
+.dodge:hover {
+    background-image: url(/Image/dodge.jpg);
+    height: 350px;
+    background-size: cover;
+}
+
+
+
+
+

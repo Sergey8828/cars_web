@@ -1,0 +1,88 @@
+﻿@model Cars.Models.CarTbl
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<body style="background-color:cadetblue">
+<h2>Car Details</h2>
+
+<div style="font-size:large">
+    @*<h4>CarTbl</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Price
+        </dt>
+        <dd>
+            @ViewBag.InfoFromAPI
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BrandTbl.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrandTbl.BrandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CarName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CarName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TechnicalCharacteristics)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TechnicalCharacteristics)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Properties)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Properties)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>           
+            @if (Model.Image != null)
+            {
+                var imageAsBase64String = Convert.ToBase64String(Model.Image);
+                var imageAsGif = string.Format("data:image/gif; base64, {0}", imageAsBase64String);
+                <img src="@imageAsGif" class="img-circle" style="max-height:100px" ; max-width:100px; />
+            }
+            else
+            {
+                <span> No image available </span>
+            }
+            
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoStock)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoStock)
+        </dd>
+        <dt><lable>More information</lable></dt>
+        <dd>
+            @ViewBag.InfoFromAPI
+        </dd>
+
+    </dl>
+</div>
+<p style="font-size:23px; color:darkmagenta">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CarID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+    </body>

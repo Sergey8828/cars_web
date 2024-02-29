@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Cars.Models.CarTbl>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Index</h2>*@
+
+<p style="color:darkslategrey; font-size:22px; margin-top:15px; color:aqua !important;">
+    @Html.ActionLink("Create New", "Create")
+    
+</p>
+<body style="background-color:cadetblue" >
+
+    <table style="font-size:larger" class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CarName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandTbl.BrandName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TechnicalCharacteristics)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Properties)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoStock)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CarName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandTbl.BrandName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TechnicalCharacteristics)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Properties)
+                </td>
+                <td>
+                    @*@Html.DisplayFor(modelItem => item.Image)*@
+                    @if (item.Image != null)
+                    {
+                        var imageAsBase64String = Convert.ToBase64String(item.Image);
+                        var imageAsGif = string.Format("data:image/gif; base64, {0}", imageAsBase64String);
+                        <img src="@imageAsGif" class="img-circle" style="max-height:100px" ; max-width:100px; />
+                    }
+                    else
+                    {
+                        <span> No image available </span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoStock)
+                </td>
+
+
+
+
+                <td style="color:black">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CarID }, new { @class = "btn btn-primary " }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CarID }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CarID }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</body>

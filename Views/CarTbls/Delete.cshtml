@@ -1,0 +1,85 @@
+﻿@model Cars.Models.CarTbl
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>Delete</h2>*@
+<body style=" background-color:lightblue; color:navy;">
+    <h3 style="color:navy; font-size:24px">Are you sure you want to delete this car?</h3>
+    <div >
+        @*<h4>Car_Delete</h4>*@
+        <hr />
+        <dl style="font-size:20px; color:navy" class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CarName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CarName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TechnicalCharacteristics)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TechnicalCharacteristics)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Properties)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Properties)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Image)
+            </dt>
+
+            <dd>
+                @*@Html.DisplayFor(model => model.Image)*@
+                @if (Model.Image != null)
+                {
+                    var imageAsBase64String = Convert.ToBase64String(Model.Image);
+                    var imageAsGif = string.Format("data:image/gif; base64, {0}", imageAsBase64String);
+                    <img src="@imageAsGif" class="img-circle" style="max-height:100px" ; max-width:100px; />
+                }
+                else
+                {
+                    <span> No image available </span>
+                }
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NoStock)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoStock)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.BrandTbl.BrandName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BrandTbl.BrandName)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div style="font-size:20px;" class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-danger" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
